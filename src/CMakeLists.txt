@@ -12,3 +12,5 @@ include_directories(${CUPS_INCLUDE_DIR})
 #add_subdirectory()
 
 add_executable(rastertovkp80 ${SOURCE_FILES})
+
+install(TARGETS rastertovkp80 DESTINATION /usr/lib/cups/filter)

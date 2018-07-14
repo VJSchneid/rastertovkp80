@@ -9,11 +9,11 @@ add_subdirectory(src)
 
 if(CMAKE_CURRENT_SOURCE_DIR STREQUAL CMAKE_SOURCE_DIR)
     if(CMAKE_BUILD_TYPE STREQUAL "Debug" OR ENABLE_TESTING)
-        include(cmake/test.cmake)
+        #include(cmake/test.cmake)
 
-        add_subdirectory(test)
+        #add_subdirectory(test)
 
-        add_all_test_targets()
+        #add_all_test_targets()
     endif()
 endif()
 

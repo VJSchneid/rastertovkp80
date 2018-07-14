@@ -3,17 +3,17 @@
 *FileVersion:           "1.1"
 *LanguageVersion:       English
 *LanguageEncoding:      ISOLatin1
-*PCFileName:            "VKP80_64bit.ppd"
+*PCFileName:            "vkp80.ppd"
 *Manufacturer:          "Custom Engineering"
 *Product:               "(VKP80 200Dpi)"
 *1284DeviceID:          "MFG:Custom Engineering;CMD:Custom Engineering;MDL:VKP80 (STR_T-U001);CLS:PRINTER;"
 *cupsVersion:           1.1
 *cupsManualCopies:      True
 *cupsModelNumber:       200
-*cupsFilter:            "application/vnd.cups-raster 0 rastertovkp80_64bit"
+*cupsFilter:            "application/vnd.cups-raster 0 rastertovkp80"
 *ModelName:             "VKP80"
 *ShortNickName:         "VKP80"
-*NickName:              "VKP80 64bit rel 1.02 (S.Code:01DV00075)"
+*NickName:              "VKP80 rel 1.02 (S.Code:01DV00075)"
 *PSVersion:             "(3010.000) 550"
 *LanguageLevel:         "2"
 *ColorDevice:           False

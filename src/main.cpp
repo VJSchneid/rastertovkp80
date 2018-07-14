@@ -57,8 +57,6 @@ int main(const int argc, const char **argv) {
         std::cout.write(reinterpret_cast<char*>(buffer.data()), buffer.size());
         std::cout << printBitImage;
 
-        std::cout << std::endl << "Hello World!" << std::endl;
-
         std::cout << totalCut << eject;
 
         std::cout.flush();

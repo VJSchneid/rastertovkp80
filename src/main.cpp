@@ -34,6 +34,10 @@ int main(const int argc, const char **argv) {
         logFile << "Buffer size: " << buffer.size() << std::endl;
         logFile << "Bits per Color: " << header.cupsBitsPerColor << std::endl;
         logFile << "Colorspace: " << header.cupsColorSpace << std::endl;
+        logFile << "Compression: " << header.cupsCompression << std::endl;
+        logFile << "Tumble: " << header.Tumble << std::endl;
+        logFile << "cupsMediaType: " << header.cupsMediaType << std::endl;
+        logFile << "MediaClass: " << header.MediaClass << std::endl;
 
         buffer.resize(header.cupsHeight * header.cupsBytesPerLine -2);
 
@@ -42,6 +46,9 @@ int main(const int argc, const char **argv) {
         }
 
         const char eject[] = {0x1d, 0x65, 0x05, 0};
+        const char retraced[] = {0x1d, 0x65, 0x02, 0};
+        const char enabledispenser[] = {0x1d, 0x65, 20, 0};
+        const char disableDispenser[] = {0x1d, 0x65, 18, 0};
         const char totalCut[] = {0x1b, 0x69, 0};
 
         const char selectBitImageMode[] = {0x1d, 0x76, 0x30, 0};
@@ -49,7 +56,15 @@ int main(const int argc, const char **argv) {
 
         const char printBitImage[] = {0x0a, 0x0d, 0x1b, 0x4a, 0};
 
+        const char setPrintingSpeed[] = {0x1d, static_cast<char>(0xf0), 0};
+        const char highQuality = 0;
+        const char normalQuality = 1;
+        const char fastQuality = 2;
+
         std::cout << eject;
+
+        std::cout << setPrintingSpeed << fastQuality;
+        std::cout << enabledispenser;
 
         std::cout << selectBitImageMode << normalBitImageMode;
         std::cout << (char)(header.cupsBytesPerLine - 2) << (char)((header.cupsBytesPerLine - 2) >> 8); // nL & nH
@@ -57,9 +72,11 @@ int main(const int argc, const char **argv) {
         std::cout.write(reinterpret_cast<char*>(buffer.data()), buffer.size());
         std::cout << printBitImage;
 
-        std::cout << totalCut << eject;
+        std::cout << disableDispenser << totalCut;
 
         std::cout.flush();
+
+        cupsRasterClose(raster);
     }
 
 }

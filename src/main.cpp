@@ -46,7 +46,7 @@ int main(const int argc, const char **argv) {
         }
 
         const char eject[] = {0x1d, 0x65, 0x05, 0};
-        const char retraced[] = {0x1d, 0x65, 0x02, 0};
+        const char retrace[] = {0x1d, 0x65, 0x02, 0};
         const char enabledispenser[] = {0x1d, 0x65, 20, 0};
         const char disableDispenser[] = {0x1d, 0x65, 18, 0};
         const char totalCut[] = {0x1b, 0x69, 0};
@@ -75,10 +75,8 @@ int main(const int argc, const char **argv) {
         std::cout << disableDispenser << totalCut;
 
         std::cout.flush();
-
-        cupsRasterClose(raster);
     }
-
+    cupsRasterClose(raster);
 }
 
 
